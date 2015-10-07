@@ -1,0 +1,321 @@
+{
+  "data": {
+    "escolas": [
+      {
+        "nome": "Colégio Olga Ferraz",
+        "cep": "05410-100",
+        "responsavel": "Luiz Carlos Gadelha",
+        "endereco": "Avenida Nove de Julho",
+        "createdAt": "2015-10-01T15:58:55.331Z",
+        "updatedAt": "2015-10-01T15:58:55.331Z",
+        "id": 1
+      }
+    ],
+    "cantinas": [
+      {
+        "idescola": 1,
+        "nome": "Cantina da Bebel",
+        "responsavel": "Elizabete Soares",
+        "horariofuncionamento": "Das 7h30 às 17h",
+        "createdAt": "2015-10-01T16:25:14.483Z",
+        "updatedAt": "2015-10-01T17:00:27.894Z",
+        "id": 1
+      }
+    ],
+    "responsaveis": [
+      {
+        "nome": "Luiz Carlos Serra",
+        "cpf": "33003810880",
+        "rg": "284975497",
+        "email": "fabiocosta@webfc.esy.es",
+        "cep": "02919070",
+        "endereco": "Rua Bernardo de Azevedo, 40",
+        "createdAt": "2015-10-01T17:14:43.165Z",
+        "updatedAt": "2015-10-01T17:19:36.655Z",
+        "id": 2,
+        "datanascimento": "1985-02-11T00:00:00.000Z",
+        "cidade": "São Paulo",
+        "estado": "SP"
+      }
+    ],
+    "alunos": [
+      {
+        "nome": "Victor Lacerda",
+        "datanascimento": "2010-08-18T00:00:00.000Z",
+        "serie": "1ª",
+        "idescola": 1,
+        "idresponsavel": 2,
+        "createdAt": "2015-10-01T17:21:55.562Z",
+        "updatedAt": "2015-10-01T17:22:29.063Z",
+        "id": 1
+      }
+    ],
+    "restricoesalimentares": [
+      {
+        "idaluno": 1,
+        "lactose": 0,
+        "gluten": 0,
+        "diabetico": "0",
+        "createdAt": "2015-10-01T19:40:12.307Z",
+        "updatedAt": "2015-10-01T19:40:12.307Z",
+        "id": 1
+      }
+    ],
+    "alunos_id__restricoesalimentares_alunos": [],
+    "alimentosespeciais": [
+      {
+        "alimento": "leite",
+        "idaluno": 1,
+        "createdAt": "2015-10-01T20:19:07.186Z",
+        "updatedAt": "2015-10-01T20:19:07.186Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "escolas": {
+      "name": {
+        "type": "string"
+      },
+      "responsavel": {
+        "type": "string"
+      },
+      "cep": {
+        "type": "string"
+      },
+      "endereco": {
+        "type": "string"
+      },
+      "cidade": {
+        "type": "string"
+      },
+      "estado": {
+        "type": "string"
+      },
+      "telefone": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "cantinas": {
+      "nome": {
+        "type": "string"
+      },
+      "responsavel": {
+        "type": "string"
+      },
+      "cnpj": {
+        "type": "string"
+      },
+      "horariofuncionamento": {
+        "type": "string"
+      },
+      "idescola": {
+        "type": "integer",
+        "model": "escolas",
+        "foreignKey": true,
+        "alias": "idescola"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "responsaveis": {
+      "nome": {
+        "type": "string"
+      },
+      "cpf": {
+        "type": "string"
+      },
+      "rg": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "cep": {
+        "type": "string"
+      },
+      "endereco": {
+        "type": "string"
+      },
+      "cidade": {
+        "type": "string"
+      },
+      "estado": {
+        "type": "string"
+      },
+      "datanascimento": {
+        "type": "date"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "alunos": {
+      "nome": {
+        "type": "string"
+      },
+      "datanascimento": {
+        "type": "date"
+      },
+      "imagem": {
+        "type": "string"
+      },
+      "serie": {
+        "type": "string"
+      },
+      "idescola": {
+        "type": "integer",
+        "model": "escolas",
+        "foreignKey": true,
+        "alias": "idescola"
+      },
+      "idresponsavel": {
+        "type": "integer",
+        "model": "responsaveis",
+        "foreignKey": true,
+        "alias": "idresponsavel"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "restricoesalimentares": {
+      "aluno": {
+        "type": "string"
+      },
+      "lactose": {
+        "type": "integer"
+      },
+      "gluten": {
+        "type": "integer"
+      },
+      "idaluno": {
+        "type": "integer",
+        "model": "alunos",
+        "foreignKey": true,
+        "alias": "idaluno"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "alunos_id__restricoesalimentares_alunos": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "restricoesalimentares_alunos": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "restricoesalimentares",
+        "on": "id",
+        "via": "alunos_id"
+      },
+      "alunos_id": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "alunos",
+        "on": "id",
+        "via": "restricoesalimentares_alunos"
+      }
+    },
+    "alimentosespeciais": {
+      "idalimento": {
+        "type": "integer"
+      },
+      "alimento": {
+        "type": "string"
+      },
+      "idaluno": {
+        "type": "integer",
+        "model": "alunos",
+        "foreignKey": true,
+        "alias": "idaluno"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "escolas": {
+      "id": 2
+    },
+    "cantinas": {
+      "id": 2
+    },
+    "responsaveis": {
+      "id": 2
+    },
+    "alunos": {
+      "id": 2
+    },
+    "restricoesalimentares": {
+      "id": 1
+    },
+    "alunos_id__restricoesalimentares_alunos": {},
+    "alimentosespeciais": {
+      "id": 1
+    }
+  }
+}
